@@ -21,15 +21,6 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('workspaceName'), '/DataSandbox')]",
-			"type": "Microsoft.Synapse/workspaces/bigDataPools",
-			"apiVersion": "2019-06-01-preview",
-			"properties": {
-				"annotations": []
-			},
-			"dependsOn": []
-		},
-		{
 			"name": "[concat(parameters('workspaceName'), '/mysandbox-WorkspaceDefaultSqlServer')]",
 			"type": "Microsoft.Synapse/workspaces/linkedServices",
 			"apiVersion": "2019-06-01-preview",
@@ -122,7 +113,7 @@
 						"spark.dynamicAllocation.enabled": "true",
 						"spark.dynamicAllocation.minExecutors": "1",
 						"spark.dynamicAllocation.maxExecutors": "4",
-						"spark.autotune.trackingId": "56cac9cc-95f7-4002-a177-cb29cb2091ff"
+						"spark.autotune.trackingId": "0a461ea6-d2bd-47e6-bd39-2110c6b45977"
 					}
 				},
 				"metadata": {
@@ -130,7 +121,7 @@
 					"enableDebugMode": false,
 					"kernelspec": {
 						"name": "synapse_pyspark",
-						"display_name": "python"
+						"display_name": "Synapse PySpark"
 					},
 					"language_info": {
 						"name": "python"
@@ -167,10 +158,40 @@
 							}
 						},
 						"source": [
+							"import logging\n",
+							"\n",
+							"# Customize the logging format for all loggers\n",
+							"FORMAT = \"%(asctime)s - %(name)s - %(levelname)s - %(message)s\"\n",
+							"formatter = logging.Formatter(fmt=FORMAT)\n",
+							"for handler in logging.getLogger().handlers:\n",
+							"    handler.setFormatter(formatter)\n",
+							"\n",
+							"# Customize log level for all loggers\n",
+							"logging.getLogger().setLevel(logging.INFO)\n",
+							"\n",
+							"# Customize the log level for a specific logger\n",
+							"customizedLogger = logging.getLogger('customized')\n",
+							"customizedLogger.setLevel(logging.WARNING)\n",
+							"\n",
+							"# logger that use the default global log level\n",
+							"defaultLogger = logging.getLogger('default')\n",
+							"\n",
+							"defaultLogger.debug(\"default debug message\")\n",
+							"defaultLogger.info(\"default info message\")\n",
+							"defaultLogger.warning(\"default warning message\")\n",
+							"defaultLogger.error(\"default error message\")\n",
+							"defaultLogger.critical(\"default critical message\")\n",
+							"\n",
+							"# logger that use the customized log level\n",
+							"customizedLogger.debug(\"customized debug message\")\n",
+							"customizedLogger.info(\"customized info message\")\n",
+							"customizedLogger.warning(\"customized warning message\")\n",
+							"customizedLogger.error(\"customized error message\")\n",
+							"customizedLogger.critical(\"customized critical message\")\n",
 							""
 						],
 						"outputs": [],
-						"execution_count": null
+						"execution_count": 2
 					}
 				]
 			},
