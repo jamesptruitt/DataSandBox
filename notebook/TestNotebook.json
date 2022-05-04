@@ -17,7 +17,7 @@
 				"spark.dynamicAllocation.enabled": "true",
 				"spark.dynamicAllocation.minExecutors": "1",
 				"spark.dynamicAllocation.maxExecutors": "4",
-				"spark.autotune.trackingId": "f1c1b932-2850-4560-bf63-e67e0a4bf259"
+				"spark.autotune.trackingId": "d3dda9e6-6a9b-472f-8c9c-2fd1b63bd701"
 			}
 		},
 		"metadata": {
@@ -94,7 +94,7 @@
 					"customizedLogger.critical(\"customized critical message\")\n",
 					""
 				],
-				"execution_count": 1
+				"execution_count": 2
 			}
 		]
 	}
