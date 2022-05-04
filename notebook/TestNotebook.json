@@ -17,7 +17,7 @@
 				"spark.dynamicAllocation.enabled": "true",
 				"spark.dynamicAllocation.minExecutors": "1",
 				"spark.dynamicAllocation.maxExecutors": "4",
-				"spark.autotune.trackingId": "ff3bdf89-0568-4404-b4b4-0f3ac035f43f"
+				"spark.autotune.trackingId": "9d22c348-70c8-4ac8-8564-81d479a75a5c"
 			}
 		},
 		"metadata": {
@@ -73,10 +73,6 @@
 					"# Customize log level for all loggers\n",
 					"logging.getLogger().setLevel(logging.INFO)\n",
 					"\n",
-					"# Customize the log level for a specific logger\n",
-					"customizedLogger = logging.getLogger('customized')\n",
-					"customizedLogger.setLevel(logging.WARNING)\n",
-					"\n",
 					"# logger that use the default global log level\n",
 					"defaultLogger = logging.getLogger('default')\n",
 					"\n",
@@ -91,7 +87,7 @@
 					"demo_df.show()\n",
 					""
 				],
-				"execution_count": 12
+				"execution_count": 13
 			}
 		]
 	}
