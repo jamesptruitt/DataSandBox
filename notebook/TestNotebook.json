@@ -1,0 +1,94 @@
+{
+	"name": "TestNotebook",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "DataSandbox",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "56g",
+			"driverCores": 8,
+			"executorMemory": "56g",
+			"executorCores": 8,
+			"numExecutors": 1,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "true",
+				"spark.dynamicAllocation.minExecutors": "1",
+				"spark.dynamicAllocation.maxExecutors": "4",
+				"spark.autotune.trackingId": "0b3d7f0d-30f4-45f1-b4e1-7567484c5b40"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/de19f1bc-1903-4df7-8bc8-3dfd8ff9e785/resourceGroups/data_sandbox/providers/Microsoft.Synapse/workspaces/mysandbox/bigDataPools/DataSandbox",
+				"name": "DataSandbox",
+				"type": "Spark",
+				"endpoint": "https://mysandbox.dev.azuresynapse.usgovcloudapi.net/livyApi/versions/2019-11-01-preview/sparkPools/DataSandbox",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "3.1",
+				"nodeCount": 10,
+				"cores": 8,
+				"memory": 56,
+				"automaticScaleJobs": true
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"import logging\n",
+					"\n",
+					"# Customize the logging format for all loggers\n",
+					"FORMAT = \"%(asctime)s - %(name)s - %(levelname)s - %(message)s\"\n",
+					"formatter = logging.Formatter(fmt=FORMAT)\n",
+					"for handler in logging.getLogger().handlers:\n",
+					"    handler.setFormatter(formatter)\n",
+					"\n",
+					"# Customize log level for all loggers\n",
+					"logging.getLogger().setLevel(logging.INFO)\n",
+					"\n",
+					"# logger that use the default global log level\n",
+					"defaultLogger = logging.getLogger('default')\n",
+					"\n",
+					"#defaultLogger.debug(\"default debug message2\")\n",
+					"defaultLogger.info(\"default info message2\")\n",
+					"defaultLogger.warning(\"default warning message2\")\n",
+					"#defaultLogger.error(\"default error message2\")\n",
+					"#defaultLogger.critical(\"default critical message2\")\n",
+					"\n",
+					"new_rows = [('CA',22, 45000),(\"WA\",35,65000) ,(\"WA\",50,85000)]\n",
+					"demo_df = spark.createDataFrame(new_rows, ['state', 'age', 'salary'])\n",
+					"demo_df.show()\n",
+					""
+				],
+				"execution_count": 13
+			}
+		]
+	}
+}
