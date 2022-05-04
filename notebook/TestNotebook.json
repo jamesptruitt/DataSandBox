@@ -17,7 +17,7 @@
 				"spark.dynamicAllocation.enabled": "true",
 				"spark.dynamicAllocation.minExecutors": "1",
 				"spark.dynamicAllocation.maxExecutors": "4",
-				"spark.autotune.trackingId": "9d22c348-70c8-4ac8-8564-81d479a75a5c"
+				"spark.autotune.trackingId": "1e450c1a-0483-4833-a549-211de643d2d0"
 			}
 		},
 		"metadata": {
@@ -78,7 +78,7 @@
 					"\n",
 					"#defaultLogger.debug(\"default debug message2\")\n",
 					"defaultLogger.info(\"default info message2\")\n",
-					"#defaultLogger.warning(\"default warning message2\")\n",
+					"defaultLogger.warning(\"default warning message2\")\n",
 					"#defaultLogger.error(\"default error message2\")\n",
 					"#defaultLogger.critical(\"default critical message2\")\n",
 					"\n",
